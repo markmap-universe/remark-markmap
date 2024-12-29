@@ -7,6 +7,11 @@ export default (darkThemeCssSelector: string) =>
   position: relative;
   height: 500px;
   width: 100%;
+  background: #FFFFFF;
+}
+
+${darkThemeCssSelector} .markmap-wrap {
+  background: #1a1a1a;
 }
 
 .markmap-wrap > svg {
