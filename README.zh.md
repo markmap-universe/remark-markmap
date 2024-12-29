@@ -4,11 +4,11 @@
   
 </td></table>
 
->依赖于 [markmap](https://github.com/markmap/markmap)。灵感来自于 [hexo-markmap](https://github.com/maxchang3/hexo-markmap)。
-
 # remark-markmap [![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
 
 一个remark插件，用于在markdown中插入思维导图。只需在markdown中插入代码块，即可渲染思维导图。
+
+>依赖于 [markmap](https://github.com/markmap/markmap)。灵感来自于 [hexo-markmap](https://github.com/maxchang3/hexo-markmap)。
 
 ## 安装
 
