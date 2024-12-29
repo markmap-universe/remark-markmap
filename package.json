@@ -24,6 +24,11 @@
     "email": "coderxi@qq.com",
     "url": "https://coderxi.com"
   },
+  "homepage": "https://github.com/coderxi1/remark-markmap#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderxi1/remark-markmap.git"
+  },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "markmap-common": "^0.18.0",
