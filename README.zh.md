@@ -1,6 +1,6 @@
 <table><td>
     
-[English](https://github.com/coderxi1/blob/master/README.md)
+[English](https://github.com/coderxi1/remark-markmap/blob/master/README.md)
   
 </td></table>
 
