@@ -17,15 +17,22 @@ export default function () {
       timeout = setTimeout(() => callback.apply(this, args), wait);
     };
   }
-  const toobar = (markmapInstance) => {
-    const toobar = Toolbar.create(markmapInstance)
-    toobar.setBrand(false)
-    Object.assign(toobar.el.style, {
+  const toolbar = (markmapInstance,{fullscreenElement}) => {
+    const toolbar = Toolbar.create(markmapInstance)
+    toolbar.setBrand(false)
+    toolbar.register({
+      id: 'fullScreen',
+      title: 'Full Screen View',
+      content: Toolbar.icon('M4 9v-4h4v2h-2v2zM4 11v4h4v-2h-2v-2zM16 9v-4h-4v2h2v2zM16 11v4h-4v-2h2v-2z'),
+      onClick: () => document.fullscreenElement ? document.exitFullscreen() : fullscreenElement.requestFullscreen()
+    })
+    toolbar.setItems([...toolbar.items, 'fullScreen'])
+    Object.assign(toolbar.el.style, {
       position : 'absolute',
       bottom : '0.5rem',
       right : '0.5rem',
     })
-    return toobar.el
+    return toolbar.el
   }
   
   document.querySelectorAll('.markmap-wrap').forEach((wrap) => {
@@ -33,7 +40,7 @@ export default function () {
     wrap.innerHTML = '<svg></svg>'
     const svg = wrap.querySelector('svg')
     const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
-    wrap.append(toobar(markmapInstance))
+    wrap.append(toolbar(markmapInstance, {fullscreenElement: wrap}))
     resize.observe(wrap, debounce(()=>markmapInstance.fit(), 100))
   })
   
