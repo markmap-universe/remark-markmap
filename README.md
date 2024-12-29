@@ -1,3 +1,5 @@
+Depend on [markmap](https://github.com/markmap/markmap). Inspired by [hexo-markmap](https://github.com/maxchang3/hexo-markmap).
+
 # remark-markmap [![Version](https://badgen.net/npm/v/remark-markmap)](https://npm.im/remark-markmap)
 
 A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
