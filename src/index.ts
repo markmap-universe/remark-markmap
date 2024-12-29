@@ -56,6 +56,7 @@ const remarkMarkmap = () => {
         `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
+        `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
         ...assetsHtmlsSet,
         `<style>${markmapStyle()}</style>`,
         `<script>(${markmapInit.toString()})();</script>`,
