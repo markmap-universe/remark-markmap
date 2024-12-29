@@ -3,7 +3,7 @@ import { Node, Code, Parent } from 'mdast'
 import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
-import markmapInit from './markmap-init'
+import markmapInit from './markmap-init.js'
 import markmapStyle from './markmap-style'
 
 const transformer = new Transformer()
