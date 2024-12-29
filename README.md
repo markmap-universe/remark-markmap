@@ -18,24 +18,33 @@ yarn add remark-markmap
 
 ## Options
 
+### Plugin Options
+
+```js
+{
+  darkThemeCssSelector: '.dark'
+}
+```
+- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.
+
 ### Frontmatter Options
 
 The frontmatter integrates style and jsonOptions.
-  ```yaml
-  id: markmap-example
-  style: |
+```yaml
+id: markmap-example
+style: |
+  #${id} {
+    height: 300px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) {
     #${id} {
-      height: 300px;
-      width: 100%;
+      height: 600px;
     }
-    @media (min-width: 1280px) {
-      #${id} {
-        height: 600px;
-      }
-    }
-  options:
-    colorFreezeLevel: 2
-  ```
+  }
+options:
+  colorFreezeLevel: 2
+```
   
 - **`style`** : Used to define custom CSS styles for the mindmap.  
 The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
