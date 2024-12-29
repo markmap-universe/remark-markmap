@@ -1,16 +1,16 @@
 <table><td>
     
-[简体中文](https://github.com/coderxi1/blob/master/README.zh.md)
+[English](https://github.com/coderxi1/blob/master/README.md)
   
 </td></table>
 
->Depend on [markmap](https://github.com/markmap/markmap). Inspired by [hexo-markmap](https://github.com/maxchang3/hexo-markmap).
+>依赖于 [markmap](https://github.com/markmap/markmap)。灵感来自于 [hexo-markmap](https://github.com/maxchang3/hexo-markmap)。
 
 # remark-markmap [![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
 
-A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
+一个remark插件，用于在markdown中插入思维导图。只需在markdown中插入代码块，即可渲染思维导图。
 
-## Installation
+## 安装
 
 ```sh
 pnpm install remark-markmap
@@ -22,20 +22,20 @@ npm install remark-markmap
 yarn add remark-markmap
 ```
 
-## Options
+## 选项
 
-### Plugin Options
+### 插件选项
 
 ```js
 {
   darkThemeCssSelector: '.dark'
 }
 ```
-- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.
+- **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
 
-### Frontmatter Options
+### Frontmatter选项
 
-The frontmatter integrates style and jsonOptions.
+Frontmatter 集成了 style 和 jsonOptions。
 ```yaml
 id: markmap-example
 style: |
@@ -52,14 +52,14 @@ options:
   colorFreezeLevel: 2
 ```
   
-- **`style`** : Used to define custom CSS styles for the mindmap.  
-The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
+- **`style`** : 用于定义思维导图的自定义CSS样式。  
+在style字段中可以使用`${id}`占位符。在渲染过程中，它将被替换为`markmap-wrap`的实际ID，确保页面上的每个思维导图元素具有唯一的样式和行为。
   
-- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+- **`options`** : 对应markmap项目中的[`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。更多详情请参考[`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
 
-## Usage
+## 使用
 
-Say our document contains: `example.md`
+假设我们的文档包含： `example.md`
 
 `````markdown
 ````markmap
@@ -121,7 +121,7 @@ console.log('hello, JavaScript')
 ````
 `````
 
-Use the `remark-markmap` plugin in `example.js`:
+在 `example.js` 中使用 `remark-markmap` 插件：
 
 ```javascript
 import { read } from 'to-vfile'
