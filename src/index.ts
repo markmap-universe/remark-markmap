@@ -8,7 +8,7 @@ import markmapStyle from './markmap-style'
 
 const transformer = new Transformer()
 
-const remarkMarkmap = () => {
+const remarkMarkmap = ({ darkThemeCssSelector = '.dark' }) => {
   return (tree: Node) => {
 
     let markmapCount = 0
@@ -58,7 +58,7 @@ const remarkMarkmap = () => {
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
         `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
         ...assetsHtmlsSet,
-        `<style>${markmapStyle()}</style>`,
+        `<style>${markmapStyle(darkThemeCssSelector)}</style>`,
         `<script>(${markmapInit.toString()})();</script>`,
       ].join('')
     })
