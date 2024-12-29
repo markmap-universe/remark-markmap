@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from './markmap-init.js'
-import markmapStyle from './markmap-style'
+import markmapStyle from './markmap-style.js'
 
 const transformer = new Transformer()
 
