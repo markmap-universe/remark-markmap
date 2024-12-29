@@ -1,26 +1,44 @@
-# remark-markmap
+# remark-markmap [![Version](https://badgen.net/npm/v/remark-markmap)](https://npm.im/remark-markmap)
 
-A remark plugin to insert mindmap in markdown.
+A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
 
 ## Installation
-
-Install using npm:
-
-```sh
-npm install remark-markmap
-```
-
-Or using pnpm:
 
 ```sh
 pnpm install remark-markmap
 ```
-
-Or using yarn:
-
+```sh
+npm install remark-markmap
+```
 ```sh
 yarn add remark-markmap
 ```
+
+## Options
+
+### Frontmatter Options
+
+The frontmatter integrates style and jsonOptions.
+  ```yaml
+  id: markmap-example
+  style: |
+    #${id} {
+      height: 300px;
+      width: 100%;
+    }
+    @media (min-width: 1280px) {
+      #${id} {
+        height: 600px;
+      }
+    }
+  options:
+    colorFreezeLevel: 2
+  ```
+  
+- **`style`** : Used to define custom CSS styles for the mindmap.  
+The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
+  
+- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ## Usage
 
