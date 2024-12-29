@@ -27,11 +27,6 @@ export default function () {
       onClick: () => document.fullscreenElement ? document.exitFullscreen() : fullscreenElement.requestFullscreen()
     })
     toolbar.setItems([...toolbar.items, 'fullScreen'])
-    Object.assign(toolbar.el.style, {
-      position : 'absolute',
-      bottom : '0.5rem',
-      right : '0.5rem',
-    })
     return toolbar.el
   }
   

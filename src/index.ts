@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from './markmap-init'
+import markmapStyle from './markmap-style'
 
 const transformer = new Transformer()
 
@@ -32,7 +33,6 @@ const remarkMarkmap = () => {
       `
       const assetsHtmls = [
         ...persistCSS([
-          { type: 'style', data: `#${id}{height:500px;width:100%}` },
           { type: 'style', data: template(style,{id}) },
           ...styles
         ]),
@@ -57,7 +57,7 @@ const remarkMarkmap = () => {
         `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
         ...assetsHtmlsSet,
-        `<style>.markmap-wrap{position:relative;}.markmap-wrap>svg{width:100%;height:100%;}</style>`,
+        `<style>${markmapStyle()}</style>`,
         `<script>(${markmapInit.toString()})();</script>`,
       ].join('')
     })
