@@ -1,10 +1,10 @@
-<table><td>
-    
-[简体中文](https://github.com/coderxi1/remark-markmap/blob/master/README.zh.md)
-  
-</td></table>
+[**简体中文**](https://github.com/coderxi1/remark-markmap/blob/master/README.zh.md)
 
-# remark-markmap [![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
+# remark-markmap
+
+[![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
+[![Version](https://img.shields.io/npm/d18m/remark-markmap)](https://npm.im/remark-markmap)
+[![GithubStars](https://img.shields.io/github/stars/coderxi1/remark-markmap?style=flat&logo=github&color=yellow)](https://github.com/coderxi1/remark-markmap)
 
 A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
 

@@ -1,10 +1,11 @@
-<table><td>
-    
-[English](https://github.com/coderxi1/remark-markmap/blob/master/README.md)
-  
-</td></table>
+[**English**](https://github.com/coderxi1/remark-markmap/blob/master/README.md)
 
-# remark-markmap [![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
+# remark-markmap
+
+[![Version](https://img.shields.io/npm/v/remark-markmap)](https://npm.im/remark-markmap)
+[![Version](https://img.shields.io/npm/d18m/remark-markmap)](https://npm.im/remark-markmap)
+[![GithubStars](https://img.shields.io/github/stars/coderxi1/remark-markmap?style=flat&logo=github&color=yellow)](https://github.com/coderxi1/remark-markmap)
+
 
 一个remark插件，用于在markdown中插入思维导图。只需在markdown中插入代码块，即可渲染思维导图。
 
