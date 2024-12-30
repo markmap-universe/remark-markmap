@@ -110,5 +110,5 @@ See [example branch](https://github.com/coderxi1/remark-markmap/tree/example)
 Or clone example branch
 
 ```sh
-git clone -b example https://github.com/coderxi1/remark-markmap
+git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```

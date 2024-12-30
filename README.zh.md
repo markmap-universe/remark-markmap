@@ -111,5 +111,5 @@ console.log(String(file));
 或者 clone example 分支
 
 ```sh
-git clone -b example https://github.com/coderxi1/remark-markmap
+git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
