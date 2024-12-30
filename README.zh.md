@@ -113,3 +113,5 @@ console.log(String(file));
 ```sh
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
+
+[**预览页面**](https://coderxi1.github.io/remark-markmap/example.html)

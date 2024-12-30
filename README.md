@@ -112,3 +112,5 @@ Or clone example branch
 ```sh
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
+
+[**Preview Page**](https://coderxi1.github.io/remark-markmap/example.html)
