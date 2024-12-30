@@ -8,6 +8,8 @@
 
 A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
 
+> More preview in [my blog](https://coderxi.com/posts/remark-markmap-doc).
+
 >Depend on [markmap](https://github.com/markmap/markmap). Inspired by [hexo-markmap](https://github.com/maxchang3/hexo-markmap).
 
 ## Installation

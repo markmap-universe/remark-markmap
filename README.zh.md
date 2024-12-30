@@ -6,8 +6,9 @@
 [![Version](https://img.shields.io/npm/d18m/remark-markmap)](https://npm.im/remark-markmap)
 [![GithubStars](https://img.shields.io/github/stars/coderxi1/remark-markmap?style=flat&logo=github&color=yellow)](https://github.com/coderxi1/remark-markmap)
 
-
 一个remark插件，用于在markdown中插入思维导图。只需在markdown中插入代码块，即可渲染思维导图。
+
+> 更多预览请前往 [我的博客](https://coderxi.com/posts/remark-markmap-doc).
 
 >依赖于 [markmap](https://github.com/markmap/markmap)。灵感来自于 [hexo-markmap](https://github.com/maxchang3/hexo-markmap)。
 
