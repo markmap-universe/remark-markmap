@@ -62,63 +62,29 @@ The `${id}` placeholder can be used in the style field. During rendering, it wil
 Say our document contains: `example.md`
 
 `````markdown
+some text...
+
 ````markmap
 ---
 id: markmap-example
 style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
+  #${id} { height: 300px; width: 100%; }
 options:
   colorFreezeLevel: 2
 ---
-
-## Links
-
-- [Website](https://markmap.js.org/)
-- [GitHub](https://github.com/gera2ld/markmap)
-
-## Related Projects
-
-- [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim
-- [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode
-- [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
-
-## Features
-
-Note that if blocks and lists appear at the same level, the lists will be ignored.
-
-### Lists
-
-- **strong** ~~del~~ *italic* ==highlight==
+- links
+- **inline** ~~text~~ *styles*
+- multiline
+  text
 - `inline code`
-- [x] checkbox
-- Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
-  - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
-- Now we can wrap very very very very long text based on `maxWidth` option
-- Ordered list
-  1. item 1
-  2. item 2
-
-### Blocks
-
-```js
-console.log('hello, JavaScript')
-```
-
-| Products | Price |
-|-|-|
-| Apple | 4 |
-| Banana | 2 |
-
-![](https://markmap.js.org/favicon.png)
+- ```js
+  console.log('code block');
+  console.log('code block');
+  ```
+- KaTeX - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 ````
+
+some text...
 `````
 
 Use the `remark-markmap` plugin in `example.js`:
@@ -133,4 +99,16 @@ const file = await remark()
   .process(await read('example.md'))
 
 console.log(String(file));
+```
+
+Then you can get the renderd html.
+
+## Example
+
+See [example branch](https://github.com/coderxi1/remark-markmap/tree/example)
+
+Or clone example branch
+
+```sh
+git clone -b example https://github.com/coderxi1/remark-markmap
 ```
