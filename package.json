@@ -1,0 +1,17 @@
+{
+  "name": "remark-markmap-example",
+  "type": "module",
+  "version": "1.0.6",
+  "main": "example.js",
+  "scripts": {
+    "build": "node ./example.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "remark": "^15.0.1",
+    "remark-markmap": "^1.0.6",
+    "to-vfile": "^8.0.0"
+  }
+}
