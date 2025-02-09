@@ -20,7 +20,7 @@ const remarkMarkmap = (options = { darkThemeCssSelector: '.dark' }) => {
       const { data: frontmatter, content } = matter(node.value)
       const { id, style, jsonOptions } = Object.assign({...frontmatter},{
         id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
-        jsonOptions: frontmatter['options'] as IMarkmapJSONOptions
+        jsonOptions: frontmatter['options'] ?? {} as IMarkmapJSONOptions
       })
       // transform
       const { root, features } = transformer.transform(content)
