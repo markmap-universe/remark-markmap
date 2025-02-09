@@ -31,14 +31,14 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "markmap-common": "^0.18.0",
-    "markmap-lib": "^0.18.3",
+    "markmap-common": "^0.18.9",
+    "markmap-lib": "^0.18.9",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "markmap-toolbar": "^0.18.3",
-    "markmap-view": "^0.18.3",
     "@types/mdast": "^4.0.4",
+    "markmap-toolbar": "^0.18.9",
+    "markmap-view": "^0.18.9",
     "remark": "^15.0.1",
     "typescript": "^5.7.2"
   }
