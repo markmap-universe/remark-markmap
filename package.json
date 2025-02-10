@@ -1,6 +1,6 @@
 {
   "name": "remark-markmap",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A remark plugin insert mindmap in markdown.",
   "license": "MIT",
   "type": "module",
