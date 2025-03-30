@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.markmap-wrap.fullscreen {
+  background: #ffffff;
+}
+
 .markmap-dark .markmap-wrap.fullscreen {
   background: #1a1a1a;
 }
