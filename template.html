@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>remark-markmap-example</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .card {
+      border-radius: 5px;
+      width: 100%;
+      max-width: 1000px;
+      border: solid 1px #aaa;
+    }
+    p,p * {
+      color: #aaa;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #1a1a1a;
+      }
+      .card {
+        background: #2a2a2a;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    ${slot}
+  </div>
+  <p>Generate by <a href="https://github.com/markmap-universe/remark-markmap">remark-markmap ${version}</a></p>
+</body>
+</html>

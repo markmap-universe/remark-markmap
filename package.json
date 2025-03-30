@@ -1,7 +1,7 @@
 {
   "name": "remark-markmap-example",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.1.1",
   "main": "example.js",
   "scripts": {
     "build": "node ./example.js"
@@ -11,7 +11,7 @@
   "description": "",
   "dependencies": {
     "remark": "^15.0.1",
-    "remark-markmap": "^1.0.6",
+    "remark-markmap": "^1.1.2",
     "to-vfile": "^8.0.0"
   }
 }
