@@ -30,34 +30,24 @@ yarn add remark-markmap
 
 ```js
 {
-  darkThemeCssSelector: '.dark'
+  darkThemeSelector: () => document.documentElement.matches('.dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
 }
 ```
-- **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
+- **`darkThemeSelector`** : 一个函数，用于判断当前页面是否处于暗黑模式。它可以返回一个 `string` 或 `boolean`。当返回 `string` 时，例如 `darkThemeSelector: () => '[data-theme="dark"]'`，等价于 `document.documentElement.matches('[data-theme="dark"]')`。
 
 ### Frontmatter选项
 
-Frontmatter 集成了 style 和 jsonOptions。
+Frontmatter 集成了 style 和 jsonOptions(markmap)。
 ```yaml
 id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
-options:
+markmap:
   colorFreezeLevel: 2
 ```
   
 - **`style`** : 用于定义思维导图的自定义CSS样式。  
 在style字段中可以使用`${id}`占位符。在渲染过程中，它将被替换为`markmap-wrap`的实际ID，确保页面上的每个思维导图元素具有唯一的样式和行为。
   
-- **`options`** : 对应markmap项目中的[`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。更多详情请参考[`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
+- **`markmap`** : 对应markmap项目中的[`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。更多详情请参考[`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
 
 ## 使用
 
@@ -69,8 +59,6 @@ some text...
 ````markmap
 ---
 id: markmap-example
-style: |
-  #${id} { height: 300px; width: 100%; }
 options:
   colorFreezeLevel: 2
 ---

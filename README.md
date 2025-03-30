@@ -30,34 +30,24 @@ yarn add remark-markmap
 
 ```js
 {
-  darkThemeCssSelector: '.dark'
+  darkThemeSelector: () => document.documentElement.matches('.dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
 }
 ```
-- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.
+- **`darkThemeSelector`**: A function used to determine whether the current page is in dark mode. It can return either a `string` or a `boolean`. When it returns a `string`, for example `darkThemeSelector: () => '[data-theme="dark"]'`, it means it is equivalent to `document.documentElement.matches('[data-theme="dark"]')`.
 
 ### Frontmatter Options
 
-The frontmatter integrates style and jsonOptions.
+The frontmatter integrates style and jsonOptions(markmap).
 ```yaml
 id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
-options:
+markmap:
   colorFreezeLevel: 2
 ```
   
 - **`style`** : Used to define custom CSS styles for the mindmap.  
 The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
   
-- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+- **`markmap`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ## Usage
 
@@ -69,8 +59,6 @@ some text...
 ````markmap
 ---
 id: markmap-example
-style: |
-  #${id} { height: 300px; width: 100%; }
 options:
   colorFreezeLevel: 2
 ---
