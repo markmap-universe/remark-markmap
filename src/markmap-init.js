@@ -26,6 +26,7 @@ export default function () {
       content: Toolbar.icon('M4 9v-4h4v2h-2v2zM4 11v4h4v-2h-2v-2zM16 9v-4h-4v2h2v2zM16 11v4h-4v-2h2v-2z'),
       onClick: () => document.fullscreenElement ? document.exitFullscreen() : fullscreenElement.requestFullscreen()
     })
+    fullscreenElement.addEventListener('fullscreenchange',()=>fullscreenElement.classList[document.fullscreenElement?'add':'remove']('fullscreen'))
     toolbar.setItems([...toolbar.items, 'fullScreen'])
     return toolbar.el
   }
@@ -36,7 +37,10 @@ export default function () {
     const svg = wrap.querySelector('svg')
     const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
     wrap.append(toolbar(markmapInstance, {fullscreenElement: wrap}))
-    resize.observe(wrap, debounce(()=>markmapInstance.fit(), 100))
+    resize.observe(wrap, debounce(()=>{
+      svg.style.height = markmapInstance.state.rect.y2
+      markmapInstance.fit()
+    }, 100))
   })
   
 }
