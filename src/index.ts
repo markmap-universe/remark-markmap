@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from './markmap-init.js'
-import markmapStyle from './markmap-style.js'
+import markmapStyle from './markmap-style.css'
 
 const transformer = new Transformer()
 
@@ -32,12 +32,12 @@ const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
       // transform
       const { root, features } = transformer.transform(content)
       const { styles=[], scripts=[] } = transformer.getUsedAssets(features)
-      const wrapHtml = `
-        <div class="markmap-wrap" id="${id}">
-          <script type="application/json">${JSON.stringify(root)}</script>
-          <script type="application/json">${JSON.stringify(jsonOptions)}</script>
-        </div>
-      `
+      const wrapHtml = 
+        `<div class="markmap-wrap" id="${id}">` + 
+          `<script type="application/json">${JSON.stringify(root)}</script>` +
+          `<script type="application/json">${JSON.stringify(jsonOptions)}</script>` +
+        `</div>`
+        
       const assetsHtmls = [
         ...persistCSS([
           { type: 'style', data: template(style,{id}) },
@@ -60,11 +60,11 @@ const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
     markmapCount && (tree as Parent).children.push({
       type: 'html',
       value: [
-        `<script>(()=>{
-          const selector = (${options.darkThemeSelector.toString()})();
+        `<script>(${(darkThemeSelector:RemarkMarkmapOptions['darkThemeSelector'])=>{
+          const selector = darkThemeSelector();
           if (selector === true || (typeof selector == 'string' && document.documentElement.matches(selector)))
             document.documentElement.classList.add('markmap-dark')
-        })();</script>`,
+        }})(${options.darkThemeSelector.toString()});</script>`,
         `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
