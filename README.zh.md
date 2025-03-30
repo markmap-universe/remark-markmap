@@ -43,23 +43,22 @@ id: markmap-example
 markmap:
   colorFreezeLevel: 2
 ```
+
+- **`id`** : 设置 id 以控制单个 markmap-wrap（例如设置样式）
   
-- **`style`** : 用于定义思维导图的自定义CSS样式。  
-在style字段中可以使用`${id}`占位符。在渲染过程中，它将被替换为`markmap-wrap`的实际ID，确保页面上的每个思维导图元素具有唯一的样式和行为。
-  
-- **`markmap`** : 对应markmap项目中的[`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。更多详情请参考[`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
+- **`markmap`/`options`** : 对应markmap项目中的[`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。更多详情请参考[`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
 
 ## 使用
 
 假设我们的文档包含： `example.md`
 
 `````markdown
-some text...
+Some text...
 
 ````markmap
 ---
 id: markmap-example
-options:
+markmap:
   colorFreezeLevel: 2
 ---
 - links
@@ -74,7 +73,7 @@ options:
 - KaTeX - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 ````
 
-some text...
+Some text...
 `````
 
 在 `example.js` 中使用 `remark-markmap` 插件：
@@ -103,4 +102,4 @@ console.log(String(file));
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
 
-[**预览页面**](https://coderxi1.github.io/remark-markmap/example.html)
+[**预览页面**](https://remark.markmap.org)

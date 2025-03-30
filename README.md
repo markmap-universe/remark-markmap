@@ -43,18 +43,17 @@ id: markmap-example
 markmap:
   colorFreezeLevel: 2
 ```
-  
-- **`style`** : Used to define custom CSS styles for the mindmap.  
-The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
-  
-- **`markmap`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+
+- **`id`** : Set the id to control single markmap-wrap (such as set style)
+
+- **`markmap`/`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ## Usage
 
 Say our document contains: `example.md`
 
 `````markdown
-some text...
+Some text...
 
 ````markmap
 ---
@@ -74,7 +73,7 @@ options:
 - KaTeX - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 ````
 
-some text...
+Some text...
 `````
 
 Use the `remark-markmap` plugin in `example.js`:
@@ -103,4 +102,4 @@ Or clone example branch
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
 
-[**Preview Page**](https://coderxi1.github.io/remark-markmap/example.html)
+[**Preview Page**](https://remark.markmap.org)
