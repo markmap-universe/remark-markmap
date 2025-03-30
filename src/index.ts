@@ -10,12 +10,17 @@ import markmapStyle from './markmap-style.css'
 const transformer = new Transformer()
 
 interface RemarkMarkmapOptions {
-  darkThemeSelector: () => string|boolean
+  darkThemeSelector?: () => string|boolean
 }
 
-const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
+const defaultOptions = {
   darkThemeSelector: () => document.documentElement.matches('.dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-}) => {
+}
+
+const remarkMarkmap : Plugin<[RemarkMarkmapOptions?],Root> = (options = defaultOptions) => {
+
+  options = Object.assign(defaultOptions,options)
+
   return (tree) => {
 
     let markmapCount = 0
@@ -57,11 +62,11 @@ const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
     markmapCount && (tree as Parent).children.push({
       type: 'html',
       value: [
-        `<script>(${(darkThemeSelector:RemarkMarkmapOptions['darkThemeSelector'])=>{
+        `<script>(${(darkThemeSelector:any)=>{
           const selector = darkThemeSelector();
           if (selector === true || (typeof selector == 'string' && document.documentElement.matches(selector)))
             document.documentElement.classList.add('markmap-dark')
-        }})(${options.darkThemeSelector.toString()});</script>`,
+        }})(${options.darkThemeSelector!.toString()});</script>`,
         `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
