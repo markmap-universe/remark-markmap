@@ -1,16 +1,8 @@
+Some text ...
+
 ````markmap
 ---
 id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
 options:
   colorFreezeLevel: 2
 ---
@@ -55,3 +47,5 @@ console.log('hello, JavaScript')
 
 ![](https://markmap.js.org/favicon.png)
 ````
+
+Some text ...
