@@ -25,24 +25,21 @@ const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
       if (node.lang !== 'markmap') return
       // params
       const { data: frontmatter, content } = matter(node.value)
-      const { id, style, jsonOptions } = Object.assign({...frontmatter},{
-        id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
-        jsonOptions: frontmatter['options'] ?? {} as IMarkmapJSONOptions
-      })
+      const { id, jsonOptions } = {
+        id: frontmatter['id'] as string|undefined,
+        jsonOptions: (frontmatter['markmap'] ?? frontmatter['options'] ?? {}) as IMarkmapJSONOptions
+      }
       // transform
       const { root, features } = transformer.transform(content)
       const { styles=[], scripts=[] } = transformer.getUsedAssets(features)
       const wrapHtml = 
-        `<div class="markmap-wrap" id="${id}">` + 
+        `<div class="markmap-wrap" ${id?`id="${id}"`:""}>` + 
           `<script type="application/json">${JSON.stringify(root)}</script>` +
           `<script type="application/json">${JSON.stringify(jsonOptions)}</script>` +
         `</div>`
         
       const assetsHtmls = [
-        ...persistCSS([
-          { type: 'style', data: template(style,{id}) },
-          ...styles
-        ]),
+        ...persistCSS(styles),
         ...persistJS(scripts, {
           getMarkmap: () => window.markmap,
           root,
@@ -76,12 +73,6 @@ const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
     })
 
   }
-}
-
-function template(template: string, props?: {}) {
-  return !props
-   ? template
-   : new Function(...Object.keys(props), `return \`${template}\`;`)(...Object.values(props))
 }
 
 export default remarkMarkmap
