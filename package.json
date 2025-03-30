@@ -40,6 +40,7 @@
     "markmap-toolbar": "^0.18.9",
     "markmap-view": "^0.18.9",
     "remark": "^15.0.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "unified": "^11.0.5"
   }
 }

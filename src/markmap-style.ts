@@ -1,8 +1,4 @@
-export default (darkThemeCssSelector: string) =>
-/*
-  Plugin self-use style.
-*/
-`
+export default `
 .markmap-wrap {
   position: relative;
   height: max-content;
@@ -10,7 +6,7 @@ export default (darkThemeCssSelector: string) =>
   background: #FFFFFF;
 }
 
-${darkThemeCssSelector} .markmap-wrap.fullscreen {
+.markmap-dark .markmap-wrap.fullscreen {
   background: #1a1a1a;
 }
 
@@ -29,30 +25,5 @@ ${darkThemeCssSelector} .markmap-wrap.fullscreen {
   position: absolute;
   right: .5em;
   bottom: .5em;
-}
-`
-
-+
-
-/* 
-  Override of the default markmap styles.
-  https://github.com/markmap/markmap/blob/master/packages/markmap-view/src/style.css
-  https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css
-*/
-`
-${darkThemeCssSelector} .markmap {
-  --markmap-code-bg: #1a1b26;
-  --markmap-code-color: #ddd;
-  --markmap-circle-open-bg: #444;
-  --markmap-text-color: #eee;
-}
-
-${darkThemeCssSelector} .mm-toolbar {
-  --un-border-opacity: 1;
-  border-color: rgb(82 82 91 / var(--un-border-opacity));
-  --un-bg-opacity: 1;
-  background-color: rgb(39 39 42 / var(--un-bg-opacity));
-  --un-text-opacity: 1;
-  color: rgb(161 161 170 / var(--un-text-opacity));
 }
 `

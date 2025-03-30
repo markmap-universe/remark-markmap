@@ -1,5 +1,6 @@
+import type { Plugin } from "unified";
 import { visit } from 'unist-util-visit'
-import { Node, Code, Parent } from 'mdast'
+import type { Root, Code, Parent } from 'mdast'
 import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
@@ -8,13 +9,19 @@ import markmapStyle from './markmap-style.js'
 
 const transformer = new Transformer()
 
-const remarkMarkmap = (options = { darkThemeCssSelector: '.dark' }) => {
-  return (tree: Node) => {
+interface RemarkMarkmapOptions {
+  darkThemeSelector: () => string|boolean
+}
+
+const remarkMarkmap : Plugin<[RemarkMarkmapOptions],Root> = (options = {
+  darkThemeSelector: () => document.documentElement.matches('.dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+}) => {
+  return (tree) => {
 
     let markmapCount = 0
     const assetsHtmlsSet = new Set<string>()
 
-    visit(tree, 'code', (node: Code, index: number, parent: Parent) => {
+    visit(tree, 'code', (node: Code, index?: number, parent?: Parent) => {
       if (node.lang !== 'markmap') return
       // params
       const { data: frontmatter, content } = matter(node.value)
@@ -43,7 +50,7 @@ const remarkMarkmap = (options = { darkThemeCssSelector: '.dark' }) => {
       ]
   
       // replace node
-      parent.children.splice(index, 1, { type: 'html', value: wrapHtml.trim() })
+      parent!.children.splice(index!, 1, { type: 'html', value: wrapHtml.trim() })
       // save assetsHtmls
       assetsHtmls.forEach(html => assetsHtmlsSet.add(html))
       // increment
@@ -53,12 +60,17 @@ const remarkMarkmap = (options = { darkThemeCssSelector: '.dark' }) => {
     markmapCount && (tree as Parent).children.push({
       type: 'html',
       value: [
+        `<script>(()=>{
+          const selector = (${options.darkThemeSelector.toString()})();
+          if (selector === true || (typeof selector == 'string' && document.documentElement.matches(selector)))
+            document.documentElement.classList.add('markmap-dark')
+        })();</script>`,
         `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
         `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
+        `<style>${markmapStyle}</style>`,
         `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
         ...assetsHtmlsSet,
-        `<style>${markmapStyle(options.darkThemeCssSelector)}</style>`,
         `<script>(${markmapInit.toString()})();</script>`,
       ].join('')
     })
