@@ -102,4 +102,4 @@ Or clone example branch
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
 
-[**Preview Page**](https://remark.markmap.org)
+[**Preview Page**](https://markmapu.js.org/remark)

@@ -102,4 +102,4 @@ console.log(String(file));
 git clone -b example https://github.com/coderxi1/remark-markmap remark-markmap-example
 ```
 
-[**预览页面**](https://remark.markmap.org)
+[**预览页面**](https://markmapu.js.org/remark)
