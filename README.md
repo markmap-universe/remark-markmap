@@ -24,6 +24,9 @@ npm install remark-markmap
 yarn add remark-markmap
 ```
 
+> [!TIP]
+> Use [Markmap Universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) to preview your `remark-markmap` mindmaps directly in VS Code.
+
 ## Options
 
 ### Plugin Options

@@ -24,6 +24,9 @@ npm install remark-markmap
 yarn add remark-markmap
 ```
 
+> [!TIP]
+> 使用 [Markmap Universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) 在 VS Code 中直接预览你的 `remark-markmap` 思维导图。
+
 ## 选项
 
 ### 插件选项
